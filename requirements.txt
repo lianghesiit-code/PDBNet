@@ -1,0 +1,7 @@
+pytorch==1.12.0
+torch==2.7.1
+torchvision==0.22.1
+python=3.9.16=h6244533_0
+numba=0.56.4=pypi_0
+numpy=1.23.5=pypi_0
+matplotlib=3.7.0=pypi_0
