@@ -20,10 +20,8 @@ The program supports both training and testing modes. It can output evaluation m
 
 Install required packages with:
 
-```bash
 pip install -r requirements.txt
 
 ## Usage
 
-```bash
 python train.py
