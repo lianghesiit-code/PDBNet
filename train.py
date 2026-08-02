@@ -45,7 +45,7 @@ print("Device:", device)
 
 def load_table(csv_path: str):
     df = pd.read_csv(csv_path)
-    assert "label" in df.columns and "id" in df.columns, "CSV 需包含 id 和 label"
+    assert "label" in df.columns and "id" in df.columns, "CSV must contain the id and label columns"
 
     feat_cols = [c for c in df.columns if c not in ("id", "label")]
     X = df[feat_cols].to_numpy(dtype=np.float32)
@@ -578,7 +578,7 @@ def save_checkpoint(model, fixed_len, path=MODEL_PATH):
 def load_checkpoint(path=MODEL_PATH):
     if not os.path.exists(path):
         raise FileNotFoundError(
-            f"未找到模型文件：{path}，请先设置 MODE='train' 训练并保存模型。"
+            f"Model file not found: {path}. Please set MODE='train' first to train and save the model."
         )
 
     ckpt = torch.load(path, map_location=device)
@@ -612,7 +612,7 @@ def build_loaders(fixed_len=None):
         eff_tr = compute_effective_lengths(Xtr_raw)
         fixed_len = choose_fixed_len(eff_tr, POINTS_PER_DAY)
 
-    print(f"使用固定序列长度 L={fixed_len}（约 {fixed_len // POINTS_PER_DAY} 天 × {POINTS_PER_DAY} 点/天）")
+    print(f"Using fixed sequence length L={fixed_len} (approximately {fixed_len // POINTS_PER_DAY} days × {POINTS_PER_DAY} points/day)")
     print(f"Train label distribution: {dict(zip(*np.unique(ytr, return_counts=True)))}")
     print(f"Test label distribution:  {dict(zip(*np.unique(yte, return_counts=True)))}")
 
@@ -797,7 +797,7 @@ def main():
     elif MODE.lower() == "test":
         test_mode()
     else:
-        raise ValueError("MODE 只能设置为 'train' 或 'test'")
+        raise ValueError("MODE must be set to either 'train' or 'test'")
 
 
 if __name__ == "__main__":
