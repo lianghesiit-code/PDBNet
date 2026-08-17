@@ -12,9 +12,6 @@ The program supports both training and testing modes. It can output evaluation m
 - `train.csv`: Training dataset, containing 80% of the data by default.
 - `test.csv`: Testing dataset, containing 20% of the data by default.
 - `requirements.txt`: Required Python packages.
-- `model.pth`: Saved model checkpoint after training.
-- `evaluation_results.txt`: Evaluation log file.
-- `ranked_users.csv`: Ranked user anomaly scores.
 
 ## Requirements
 
